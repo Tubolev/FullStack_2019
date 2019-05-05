@@ -1,0 +1,48 @@
+title Full Stack Tehtävä 0.4 Uusi muistiinpano
+
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa tekstikenttän uuden muistiinpanon
+ja klikkaa "talleta"
+end note
+
+selain->palvelin: POST pyyntö osoitteeseen new_note
+
+note left of palvelin
+Lähetetään palvelimelle uusi muistiinpano, joka lisää sen taulukkoon "notes"
+end note.
+palvelin->selain: status 320, uudelleenohjauspyyntö
+
+note left of palvelin
+ Palvelin kehottaa tekemään uuden GET HTTP pyynnön
+end note
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  Muodostetaan HTML missä on luotut elementit sivulle sekä lomake.
+  Lisäksi luodaan linkit main.js ja main.css-tiedostoihin.
+end note
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+note left of palvelin
+  Tuodaan tyyli-asetukset sivulle tiedostosta main.css
+end note
+palvelin->selain: status 200, sivun .css-koodi
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+
+note left of palvelin
+  Tuodaan lista-asetukset HTML-tiedostoon
+end note
+palvelin->selain: status 200, Sivun JavaScript-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+note left of palvelin
+  Tuodaan sisältö[{ content: "Dallas vie", date: "2019-05-05" }, ...] listaan
+end note
+palvelin->selain: status 200, Sivun .json-koodi
+
+note left of selain
+ selain näyttää palvelimen palauttaman HTML:n
+ johon on luotu lista ja sen sisältö sekä lomake.
+end note

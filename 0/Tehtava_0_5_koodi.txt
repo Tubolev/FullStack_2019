@@ -1,0 +1,37 @@
+title Full Stack Tehtävä 0.5 muistiinpanojen sivu
+
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa osoiteriville
+https://fullstack-exampleapp.herokuapp.com/spa
+tai klikkaa tehtävän linkkiä
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa
+note left of palvelin
+  Muodostetaan HTML missä on luotut elementit sivulle sekä lomake.
+  Lisäksi luodaan linkit main.js ja main.css-tiedostoihin.
+end note
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+note left of palvelin
+  Tuodaan tyyli-asetukset sivulle tiedostosta main.css
+end note
+palvelin->selain: status 200, sivun .css-koodi
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+
+note left of palvelin
+  Tuodaan lista-asetukset HTML-tiedostoon
+end note
+palvelin->selain: status 200, Sivun JavaScript-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+note left of palvelin
+  Tuodaan sisältö listaan.
+end note
+palvelin->selain: status 200, Sivun .json-koodi
+
+note left of selain
+ selain näyttää palvelimen palauttaman HTML:n
+ johon on luotu lista ja sen sisältö sekä lomake.
+end note

@@ -1,0 +1,16 @@
+title Full Stack Tehtävä 0.6 Uusi muistiinpano (Spa)
+
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa tektikehykseen "1-1" ja painaa "talleta"
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/new_note_spa
+note left of palvelin
+  Tuodaan sisältö "[{ content: "2. erä: 1-1", date: "2019-01-01" }, ...]" listaan.
+end note
+palvelin->selain: status 201, Palvelin lisäsi uuden tiedon listaan ja päivittää listan selaimelle
+
+note left of selain
+ selain näyttää palvelimen palauttaman HTML:n
+ johon on luotu lista ja sen sisältö.
+end note
